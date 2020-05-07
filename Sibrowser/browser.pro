@@ -16,13 +16,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    browserwindow.cpp \
     main.cpp \
+    tabwidget.cpp \
+    webpage.cpp \
     webview.cpp
 
 HEADERS += \
+    browserwindow.h \
+    tabwidget.h \
+    webpage.h \
     webview.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+FORMS += \
+    certificateerrordialog.ui \
+    passworddialog.ui
