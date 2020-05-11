@@ -16,16 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    browser.cpp \
     browserwindow.cpp \
     main.cpp \
     tabwidget.cpp \
     webpage.cpp \
+    webpopupwindow.cpp \
     webview.cpp
 
 HEADERS += \
+    browser.h \
     browserwindow.h \
     tabwidget.h \
     webpage.h \
+    webpopupwindow.h \
     webview.h
 
 # Default rules for deployment.

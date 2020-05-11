@@ -13,6 +13,7 @@ class WebView : public QWebEngineView
 public:
     WebView(QWidget *parent = nullptr);
     void setPage(WebPage *page);
+
     int loadProgress() const;
     bool isWebActionEnabled(QWebEnginePage::WebAction webAction) const;
 
