@@ -4,7 +4,8 @@
 #include<QMainWindow>
 #include<QWebEnginePage>
 
-class
+class QProgressBar;
+class TabWidget;
 
 class BrowserWindow:public QMainWindow
 {

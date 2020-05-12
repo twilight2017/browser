@@ -22,9 +22,9 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event)override;
     QWebEngineView *createWindow(QWebEnginePage::WebWindowType type)override;
 signals:
-    void webActionEnableChanged(QWebEnginePage::WebWindowType type)override;
+    void webActionEnableChanged(QWebEnginePage::WebAction webAction,bool enable);
 private:
-    void createWebActionTrigger(QWebEnginePage *page,QWebEnginePage::WebAction );
+    void createWebActionTrigger(QWebEnginePage *page,QWebEnginePage::WebAction webAction);
 private:
     int m_loadProgress;
 };
