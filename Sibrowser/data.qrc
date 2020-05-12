@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data/addtab.png</file>
+        <file>data/closetab.png</file>
+        <file>data/defaulticon.png</file>
+        <file>data/go-next.png</file>
+        <file>data/go-previous.png</file>
+        <file>data/process-stop.png</file>
+        <file>data/view-refresh.png</file>
+    </qresource>
+</RCC>

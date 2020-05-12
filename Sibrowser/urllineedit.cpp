@@ -1,4 +1,4 @@
-#include "urllineedit.h"
+﻿#include "urllineedit.h"
 #include <QToolButton>
 #include <QUrl>
 
@@ -7,7 +7,7 @@ UrlLineEdit::UrlLineEdit(QWidget *parent)
     ,m_favButton(new QToolButton(this))
     ,m_clearButton(new QToolButton(this))
 {
-    m_clearButton->setIcon(QIcon(QStringLiteral(":closetab.png")));
+    m_clearButton->setIcon(QIcon(QStringLiteral(":/data/closetab.png")));
     m_clearButton->setVisible(false);
     m_clearButton->setCursor(Qt::ArrowCursor);
     QString style(QStringLiteral("QToolButton { border: none; padding: 1px; }"));

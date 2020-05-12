@@ -42,3 +42,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 FORMS += \
     certificateerrordialog.ui \
     passworddialog.ui
+
+RESOURCES += \
+    data.qrc

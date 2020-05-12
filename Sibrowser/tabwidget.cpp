@@ -1,4 +1,4 @@
-
+﻿
 #include "tabwidget.h"
 #include "webpage.h"
 #include "webview.h"
@@ -38,7 +38,7 @@ void TabWidget::handleCurrentChanged(int index)
             //emit关键字代表在窗口1里的动作在窗口2里实现
             emit  view->setFocus();//获取焦点，将url选中的页面变成当前页
         else
-            emit iconChanged(QIcon(QStringLiteral(":defaulticon.png")));
+            emit iconChanged(QIcon(QStringLiteral(":/data/defaulticon.png")));
         emit webActionEnabledChanged(QWebEnginePage::Back,view->isWebActionEnabled(QWebEnginePage::Back));
         emit webActionEnabledChanged(QWebEnginePage::Forward,view->isWebActionEnabled(QWebEnginePage::Forward));
         emit webActionEnabledChanged(QWebEnginePage::Stop,view->isWebActionEnabled(QWebEnginePage::Stop));
@@ -47,7 +47,7 @@ void TabWidget::handleCurrentChanged(int index)
         emit titleChanged(QString());
         emit loadProgress(0);
         emit urlChanged(QUrl());
-        emit iconChanged(QIcon(QStringLiteral(":defaulticon.png")));
+        emit iconChanged(QIcon(QStringLiteral(":/data/defaulticon.png")));
         emit webActionEnabledChanged(QWebEnginePage::Back,false);
         emit webActionEnabledChanged(QWebEnginePage::Forward,false);
         emit webActionEnabledChanged(QWebEnginePage::Stop,false);

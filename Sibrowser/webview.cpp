@@ -1,4 +1,4 @@
-//Web界面的展示
+﻿//Web界面的展示
 #include "browser.h"
 #include "browserwindow.h"
 #include "tabwidget.h"
@@ -83,14 +83,42 @@ bool WebView::isWebActionEnabled(QWebEnginePage::WebAction webAction) const
 
 QWebEngineView *WebView::createWindow(QWebEnginePage::WebWindowType type){
     switch (type) {
-    /*case QWebEnginePage::WebBrowserTab:{//搜索栏
+    case QWebEnginePage::WebBrowserTab: {
         BrowserWindow *mainWindow = qobject_cast<BrowserWindow*>(window());
-        return
-    }*/
-
+        return mainWindow->tabWidget()->createTab();
     }
+    case QWebEnginePage::WebBrowserBackgroundTab: {
+        BrowserWindow *mainWindow = qobject_cast<BrowserWindow*>(window());
+        return mainWindow->tabWidget()->createTab(false);
+    }
+    case QWebEnginePage::WebBrowserWindow: {
+        BrowserWindow *mainWindow = new BrowserWindow();
+        Browser::instance().addWindow(mainWindow);
+        return mainWindow->currentTab();
+    }
+    case QWebEnginePage::WebDialog: {
+        WebPopupWindow *popup = new WebPopupWindow(page()->profile());
+        return popup->view();
+    }
+    }
+    return nullptr;
 }
 WebView::~WebView()
 {
+}
+void WebView::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu *menu = page()->createStandardContextMenu();
+    const QList<QAction*> actions = menu->actions();
+    auto it = std::find(actions.cbegin(), actions.cend(), page()->action(QWebEnginePage::OpenLinkInThisWindow));
+    if (it != actions.cend()) {
+        (*it)->setText(tr("Open Link in This Tab"));
+        ++it;
+        QAction *before(it == actions.cend() ? nullptr : *it);
+        menu->insertAction(before, page()->action(QWebEnginePage::OpenLinkInNewWindow));
+        menu->insertAction(before, page()->action(QWebEnginePage::OpenLinkInNewTab));
+    }
+    connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
+    menu->popup(event->globalPos());
 }
 

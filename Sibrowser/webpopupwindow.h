@@ -5,7 +5,7 @@
 #include <QWidget>
 
 class QWebEngineProfile;
-class QWebEngine;
+class QWebEngineView;
 
 class WebView;
 class UrlLineEdit;
@@ -14,10 +14,17 @@ class WebPopupWindow : public QWidget
 {
     Q_OBJECT
 public:
-    explicit WebPopupWindow(QWidget *parent = nullptr);
+    WebPopupWindow(QWebEngineProfile *profile);
+    QWebEngineView *view() const;
+    void setUrl(const QUrl &url);
 
-signals:
+private slots:
+    void handleGeometryChangeRequested(const QRect &newGeometry);
+    void handleIconChanged(const QIcon &icon);
 
+private:
+    UrlLineEdit *m_addressBar;
+    WebView *m_view;
 };
 
 #endif // WEBPOPUPWINDOW_H
