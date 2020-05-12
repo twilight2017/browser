@@ -83,10 +83,10 @@ bool WebView::isWebActionEnabled(QWebEnginePage::WebAction webAction) const
 
 QWebEngineView *WebView::createWindow(QWebEnginePage::WebWindowType type){
     switch (type) {
-    case QWebEnginePage::WebBrowserTab:{//搜索栏
+    /*case QWebEnginePage::WebBrowserTab:{//搜索栏
         BrowserWindow *mainWindow = qobject_cast<BrowserWindow*>(window());
-        return mainWindow->tabWidget()
-    }
+        return
+    }*/
 
     }
 }

@@ -20,6 +20,7 @@ SOURCES += \
     browserwindow.cpp \
     main.cpp \
     tabwidget.cpp \
+    urllineedit.cpp \
     webpage.cpp \
     webpopupwindow.cpp \
     webview.cpp
@@ -28,6 +29,7 @@ HEADERS += \
     browser.h \
     browserwindow.h \
     tabwidget.h \
+    urllineedit.h \
     webpage.h \
     webpopupwindow.h \
     webview.h

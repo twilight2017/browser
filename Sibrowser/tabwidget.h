@@ -23,7 +23,7 @@ signals:
      void titleChanged(const QString &title);
      void urlChanged(const QUrl &url);
      void iconChanged(const QIcon &icon);
-     void webActionEanbledChanged(QWebEnginePage::WebAction action,bool enable);
+     void webActionEnabledChanged(QWebEnginePage::WebAction action,bool enable);
 
      //功能键
 public slots:
